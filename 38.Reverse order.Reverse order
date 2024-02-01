@@ -1,0 +1,21 @@
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
+public class ReverseAlphabeticalOrder {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the word: ");
+        String word = scanner.nextLine();
+        Character[] letters = new Character[word.length()];
+        for (int i = 0; i < word.length(); i++) {
+            letters[i] = word.charAt(i);
+        }
+        Arrays.sort(letters, Collections.reverseOrder());
+        StringBuilder sortedWord = new StringBuilder();
+        for (char letter : letters) {
+            sortedWord.append(letter);
+        }
+
+        System.out.println("Alphabetical Order: " + sortedWord);
+    }
+}

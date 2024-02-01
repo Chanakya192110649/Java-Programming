@@ -1,0 +1,34 @@
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+public class ArrayStats {
+    public static void main(String[] args) {
+        int[] array = {16, 18, 27, 16, 23, 21, 19};
+        double sum = 0;
+        for (int num : array) {
+            sum += num;
+        }
+        double mean = sum / array.length;
+        Arrays.sort(array);
+        double median;
+        if (array.length % 2 == 0) {
+            median = (array[array.length / 2 - 1] + array[array.length / 2]) / 2.0;
+        } else {
+            median = array[array.length / 2];
+        }
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
+        int maxFrequency = 0;
+        int mode = 0;
+        for (int num : array) {
+            int frequency = frequencyMap.getOrDefault(num, 0) + 1;
+            frequencyMap.put(num, frequency);
+            if (frequency > maxFrequency) {
+                maxFrequency = frequency;
+                mode = num;
+            }
+        }
+        System.out.println("Mean = " + mean);
+        System.out.println("Median = " + median);
+        System.out.println("Mode = " + mode);
+    }
+}

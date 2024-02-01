@@ -1,0 +1,28 @@
+import java.util.scanner;
+public class CompositeNumbers {
+    public static void main(String[] args) {
+        int[] elements = {16, 18, 27, 16, 23, 21, 19};
+        int count = 0;
+        for (int element : elements) {
+            if (isComposite(element)) {
+                count++;
+            }
+        }
+
+        System.out.println("Number of Composite Numbers = " + count);
+    }
+
+    public static boolean isComposite(int number) {
+        if (number < 4) {
+            return false;
+        }
+
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+}

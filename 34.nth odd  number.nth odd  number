@@ -1,0 +1,19 @@
+import java.util.scanner;
+public class NthOddNumber {
+    public static void main(String[] args) {
+        int n = 4;
+        int count = 0;
+        int number = 1;
+
+        while (count < n) {
+            if (number % 2 != 0) {
+                count++;
+            }
+            number++;
+        }
+
+        int nthOddNumber = (number - 1) + (2 * n);
+
+        System.out.println("The " + n + "th Odd number after " + n + " odd numbers = " + nthOddNumber);
+    }
+}
